@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #0E0E0E;
+  --color-brand-beige: #F5F1E8;
+  --color-brand-white: #F2F2F2;
+  --color-brand-olive: #606C38;
+  --color-brand-straw: #DDA15E;
+
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-brand-white font-sans antialiased selection:bg-brand-straw selection:text-brand-dark;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-tight leading-[0.9] lg:leading-[0.85];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grain {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    animation: noise 0.2s infinite;
+    opacity: .05;
+    visibility: visible;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  @keyframes noise {
+    0% { transform: translate3d(0,0,0) }
+    10% { transform: translate3d(-5%,-5%,0) }
+    20% { transform: translate3d(-10%,5%,0) }
+    30% { transform: translate3d(5%,-10%,0) }
+    40% { transform: translate3d(-5%,15%,0) }
+    50% { transform: translate3d(-10%,5%,0) }
+    60% { transform: translate3d(15%,0,0) }
+    70% { transform: translate3d(0,10%,0) }
+    80% { transform: translate3d(-15%,0,0) }
+    90% { transform: translate3d(10%,5%,0) }
+    100% { transform: translate3d(5%,0,0) }
+  }
+
+  .mask-oval {
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s var(--ease-premium) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
