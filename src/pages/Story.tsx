@@ -1,106 +1,168 @@
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
+import React from 'react';
+import { motion } from 'motion/react';
+import { ASSETS } from '@/src/constants/assets';
+import { Shield, Heart, AlertCircle, CheckCircle2 } from 'lucide-react';
+
+const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay }}
+  >
+    {children}
+  </motion.div>
+);
 
 export const Story = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-
   return (
-    <div ref={containerRef} className="pt-20 bg-brand-dark">
-      <section className="py-48 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32">
-            <div className="lg:col-span-10">
-              <motion.h1 
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                className="text-5xl sm:text-7xl md:text-8xl lg:text-[12vw] mb-24 leading-[0.85]"
-              >
-                His name is DC. <br />
-                <span className="text-brand-straw italic">And he ruined everything.</span>
-              </motion.h1>
-            </div>
-          </div>
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }}
+      className="flex flex-col w-full"
+    >
+      {/* Hero Section */}
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-brand-navy text-white">
+        <div className="absolute inset-0 z-0 opacity-40">
+          <img 
+            src={ASSETS.story.dog} 
+            alt="DC the dog" 
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <FadeIn>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl mb-8 leading-[0.85] tracking-tighter">
+              It started with <br />
+              <span className="text-white/40 italic">one dog.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              Meet DC. The professional toy destroyer who inspired a plant-based revolution.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-24">
-            <div className="lg:col-span-5 lg:col-start-2">
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5 }}
-                className="aspect-[3/4] overflow-hidden grayscale relative group"
-              >
-                <motion.img 
-                  style={{ y: imgY }}
-                  src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=2000" 
-                  alt="DC the dog" 
-                  className="w-full h-full object-cover scale-110"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-1000" />
-              </motion.div>
-            </div>
-            
-            <div className="lg:col-span-5 lg:col-start-8 flex flex-col justify-center">
-              <div className="max-w-xl space-y-24 text-2xl md:text-3xl text-brand-white/80 leading-relaxed font-sans">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="space-y-8"
-                >
-                  <p>We tried what everyone tries: rubber, rope, “tough” toys.</p>
-                  <p className="text-brand-white/40">Same result.</p>
-                  <p>They broke — or didn’t feel right giving to him.</p>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="space-y-8"
-                >
-                  <p>At some point, you stop looking for better products.</p>
-                  <p className="text-brand-white text-4xl font-serif italic border-l-2 border-brand-straw pl-8">
-                    You start asking: what actually makes sense?
-                  </p>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="space-y-8"
-                >
-                  <p>We tested materials most toys don’t use.</p>
-                  <p>Most failed.</p>
-                  <p className="text-brand-straw text-5xl font-serif">One didn’t.</p>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="space-y-8"
-                >
-                  <p>That version turned into something real.</p>
-                  <p className="text-brand-white/40">Not perfect. Not indestructible.</p>
-                  <p className="text-brand-white text-5xl md:text-7xl font-serif italic leading-tight">
-                    But finally right.
-                  </p>
-                </motion.div>
+      {/* The Problem */}
+      <section className="py-32 md:py-48 px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="space-y-8">
+            <FadeIn>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-peach/20 text-brand-navy text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
+                <AlertCircle size={14} /> The Problem
               </div>
+              <h2 className="text-4xl md:text-6xl text-brand-navy leading-tight tracking-tight">
+                The "Indestructible" <br />
+                <span className="text-brand-text/30">Myth.</span>
+              </h2>
+              <p className="text-xl text-brand-text/60 leading-relaxed">
+                We spent hundreds on toys labeled "indestructible." DC proved them wrong in minutes. But the durability wasn't the only issue.
+              </p>
+              <div className="space-y-6 pt-4">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-brand-peach/10 flex items-center justify-center text-brand-navy shrink-0">
+                    <AlertCircle size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-brand-navy">Harsh Synthetics</h4>
+                    <p className="text-brand-text/50">Most durable toys are made of petroleum-based plastics and synthetic rubbers.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-brand-peach/10 flex items-center justify-center text-brand-navy shrink-0">
+                    <AlertCircle size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-brand-navy">Toxic Fillers</h4>
+                    <p className="text-brand-text/50">Hidden glues and chemical dyes that dogs ingest during heavy play.</p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+          <FadeIn delay={0.2}>
+            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
+              <img 
+                src={ASSETS.story.workshop} 
+                alt="Workshop" 
+                className="w-full aspect-square object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* The Decision */}
+      <section className="py-32 md:py-48 px-6 bg-brand-sky/10">
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          <FadeIn>
+            <h2 className="text-5xl md:text-7xl text-brand-navy leading-tight tracking-tight">
+              "If it doesn't exist, <br />
+              <span className="text-brand-text/30 italic">we build it."</span>
+            </h2>
+            <div className="w-24 h-1 bg-brand-sky mx-auto rounded-full my-12" />
+            <p className="text-2xl text-brand-text/60 leading-relaxed italic font-display">
+              We stopped looking for the perfect toy and started researching the perfect material. We wanted something as strong as synthetic rubber but as honest as a plant.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Founder Quote */}
+      <section className="py-32 md:py-48 px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <FadeIn>
+            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
+              <img 
+                src={ASSETS.story.founder} 
+                alt="Founder" 
+                className="w-full aspect-[4/5] object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </FadeIn>
+          <div className="space-y-8">
+            <FadeIn delay={0.2}>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-mint/20 text-brand-navy text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
+                <CheckCircle2 size={14} /> The Result
+              </div>
+              <h2 className="text-4xl md:text-6xl text-brand-navy leading-tight tracking-tight">
+                FUURRSBEE™ is the <br />
+                <span className="text-brand-text/30">Proof.</span>
+              </h2>
+              <p className="text-xl text-brand-text/60 leading-relaxed">
+                After years of R&D, we found the answer in high-tension natural fibers. FUURRSBEE™ isn't just a product; it's our commitment to safer, better play for dogs like DC.
+              </p>
+              <div className="pt-8 border-t border-brand-lavender">
+                <p className="text-2xl font-display font-bold text-brand-navy">Fadel A. Jamali</p>
+                <p className="text-sm font-bold uppercase tracking-widest text-brand-text/30">Founder & CEO, WoofWoofProof™</p>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
-    </div>
+
+      {/* CTA Section */}
+      <section className="py-32 px-6 bg-brand-navy text-white text-center">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <FadeIn>
+            <h2 className="text-4xl md:text-6xl mb-8">Ready to see the product?</h2>
+            <div className="flex justify-center">
+              <motion.a 
+                href="/product"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-brand-navy px-12 py-4 rounded-full font-bold uppercase tracking-widest text-sm"
+              >
+                Explore FUURRSBEE™
+              </motion.a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+    </motion.div>
   );
 };

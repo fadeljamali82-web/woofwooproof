@@ -1,50 +1,43 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { cn } from '@/src/lib/utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'solid' | 'outline' | 'ghost';
+  variant?: 'primary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
+  children: React.ReactNode;
+  className?: string;
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'solid', size = 'md', ...props }, ref) => {
-    const variants = {
-      solid: 'bg-brand-white text-brand-dark hover:bg-brand-straw hover:text-brand-dark',
-      outline: 'border border-brand-white/30 text-brand-white hover:border-brand-straw hover:text-brand-straw',
-      ghost: 'text-brand-white hover:bg-brand-white/5',
-    };
+export const Button = ({ 
+  className, 
+  variant = 'primary', 
+  size = 'md', 
+  children,
+  ...props 
+}: ButtonProps) => {
+  const variants = {
+    primary: 'bg-brand-navy text-white shadow-xl shadow-brand-navy/20 hover:scale-105 hover:shadow-2xl',
+    outline: 'border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white',
+    ghost: 'text-brand-navy hover:bg-brand-lavender/50',
+  };
 
-    const sizes = {
-      sm: 'px-4 sm:px-6 py-2 text-[10px] sm:text-xs uppercase tracking-widest',
-      md: 'px-6 sm:px-10 py-3 sm:py-4 text-xs sm:text-sm uppercase tracking-[0.2em]',
-      lg: 'px-8 sm:px-14 py-4 sm:py-6 text-sm sm:text-base uppercase tracking-[0.3em]',
-    };
+  const sizes = {
+    sm: 'px-6 py-2.5 text-[10px]',
+    md: 'px-10 py-4 text-xs',
+    lg: 'px-14 py-6 text-sm',
+  };
 
-    return (
-      <motion.button
-        ref={ref}
-        whileHover={{ scale: 1.02, y: -2 }}
-        whileTap={{ scale: 0.98, y: 0 }}
-        transition={{ type: "spring", stiffness: 400, damping: 25 }}
-        className={cn(
-          'inline-flex items-center justify-center font-sans font-medium transition-all duration-500 focus:outline-none relative overflow-hidden group',
-          variants[variant],
-          sizes[size],
-          className
-        )}
-        {...props}
-      >
-        <span className="relative z-10">{props.children}</span>
-        {variant === 'solid' && (
-          <motion.div 
-            className="absolute inset-0 bg-brand-straw translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]"
-            aria-hidden="true"
-          />
-        )}
-      </motion.button>
-    );
-  }
-);
-
-Button.displayName = 'Button';
+  return (
+    <button
+      className={cn(
+        'inline-flex items-center justify-center rounded-full font-extrabold uppercase tracking-[0.2em] transition-all duration-500 active:scale-95 disabled:opacity-50',
+        variants[variant],
+        sizes[size],
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};

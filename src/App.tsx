@@ -1,84 +1,92 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'motion/react';
-import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { Story } from './pages/Story';
 import { Product } from './pages/Product';
-import { HowItsMade } from './pages/HowItsMade';
+import { Sizes } from './pages/Sizes';
 import { Materials } from './pages/Materials';
-import { Mission } from './pages/Mission';
+import { HowItsMade } from './pages/HowItsMade';
+import { Ethical } from './pages/Ethical';
+import { Future } from './pages/Future';
 import { BackUs } from './pages/BackUs';
-import { Retail } from './pages/Retail';
-import { Contact } from './pages/Contact';
+import { Navbar } from './components/Navbar';
+import { AnimatePresence } from 'motion/react';
+import { Facebook, Instagram, Twitter } from 'lucide-react';
 
-function ScrollToTop() {
+const ScrollToTop = () => {
   const { pathname } = useLocation();
-  useEffect(() => {
+  React.useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return null;
-}
-
-const PageWrapper = ({ children }: { children: React.ReactNode }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -10 }}
-    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-  >
-    {children}
-  </motion.div>
-);
-
-function AnimatedRoutes() {
-  const location = useLocation();
-  return (
-    <AnimatePresence mode="wait">
-      <Routes location={location}>
-        <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-        <Route path="/story" element={<PageWrapper><Story /></PageWrapper>} />
-        <Route path="/product" element={<PageWrapper><Product /></PageWrapper>} />
-        <Route path="/how-its-made" element={<PageWrapper><HowItsMade /></PageWrapper>} />
-        <Route path="/materials" element={<PageWrapper><Materials /></PageWrapper>} />
-        <Route path="/mission" element={<PageWrapper><Mission /></PageWrapper>} />
-        <Route path="/back-us" element={<PageWrapper><BackUs /></PageWrapper>} />
-        <Route path="/retail" element={<PageWrapper><Retail /></PageWrapper>} />
-        <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-      </Routes>
-    </AnimatePresence>
-  );
-}
+};
 
 export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col relative overflow-hidden">
-        <div className="grain" aria-hidden="true" />
+      <div className="relative min-h-screen bg-brand-cloud flex flex-col">
         <Navbar />
         <main className="flex-grow">
-          <AnimatedRoutes />
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/story" element={<Story />} />
+              <Route path="/product" element={<Product />} />
+              <Route path="/sizes" element={<Sizes />} />
+              <Route path="/materials" element={<Materials />} />
+              <Route path="/how-its-made" element={<HowItsMade />} />
+              <Route path="/ethical" element={<Ethical />} />
+              <Route path="/future" element={<Future />} />
+              <Route path="/back-us" element={<BackUs />} />
+            </Routes>
+          </AnimatePresence>
         </main>
-        <footer className="py-20 px-6 border-t border-brand-white/5 bg-brand-dark text-brand-white/40">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-            <div>
-              <h2 className="text-2xl font-serif text-brand-white mb-4">WOOF WOOF PROOF</h2>
-              <p className="max-w-xs">Built for real play. Not just the first five minutes.</p>
+        <footer className="py-24 px-6 bg-white border-t border-brand-lavender text-center">
+          <div className="max-w-7xl mx-auto">
+            <h3 className="text-3xl font-display font-extrabold text-brand-navy mb-4 tracking-tighter">WoofWoofProof™</h3>
+            <p className="text-brand-text/60 max-w-md mx-auto mb-12 text-lg">
+              Better play. Built from plants. Patent-backed innovation for the modern dog.
+            </p>
+            <div className="flex justify-center gap-8 text-brand-navy/40 mb-12">
+              <a 
+                href="https://www.facebook.com/people/woofwoofproofcom/100093546567228/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-brand-navy transition-colors"
+              >
+                <Facebook size={20} />
+              </a>
+              <a 
+                href="https://www.instagram.com/wwpdogtoys?igsh=eXhvdXEweXQyZGJo&utm_source=qr" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-brand-navy transition-colors"
+              >
+                <Instagram size={20} />
+              </a>
+              <a 
+                href="https://x.com/wwpdogtoys" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-brand-navy transition-colors"
+              >
+                <Twitter size={20} />
+              </a>
+              <a 
+                href="https://www.kickstarter.com/projects/woofwoofproof/eco-friendly-pet-toys-safer-play-sustainable-future" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-brand-navy transition-colors text-[10px] font-bold uppercase tracking-[0.2em] flex items-center"
+              >
+                Kickstarter
+              </a>
             </div>
-            <div className="grid grid-cols-2 gap-12 text-sm uppercase tracking-widest">
-              <div className="flex flex-col gap-4">
-                <a href="#" className="hover:text-brand-white transition-colors">Instagram</a>
-                <a href="#" className="hover:text-brand-white transition-colors">Twitter</a>
-              </div>
-              <div className="flex flex-col gap-4">
-                <a href="#" className="hover:text-brand-white transition-colors">Privacy</a>
-                <a href="#" className="hover:text-brand-white transition-colors">Terms</a>
+            <div className="mt-20 pt-12 border-t border-brand-lavender/30 flex flex-col items-center gap-4">
+              <div className="text-xs font-medium uppercase tracking-widest opacity-30">
+                © 2026 WoofWoofProof. All rights reserved.
               </div>
             </div>
-          </div>
-          <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-brand-white/5 text-xs">
-            © {new Date().getFullYear()} Woof Woof Proof. All rights reserved.
           </div>
         </footer>
       </div>
