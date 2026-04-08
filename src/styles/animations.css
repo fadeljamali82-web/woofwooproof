@@ -1,0 +1,10 @@
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.reveal,
+.floating-media,
+.marquee-strip {
+  animation: floatY 6s ease-in-out infinite;
+}

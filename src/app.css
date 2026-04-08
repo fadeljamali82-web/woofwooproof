@@ -1,0 +1,9 @@
+.app-shell {
+  position: relative;
+  overflow-x: clip;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
