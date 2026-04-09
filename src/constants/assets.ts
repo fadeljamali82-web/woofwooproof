@@ -4,12 +4,12 @@
  */
 export const ASSETS = {
   hero: {
-    product: "/images/hero-product.jpg",
+    product: "/images/frisbee-product.jpg",
     bg: "/images/hero-bg.jpg",
     lifestyle: "/images/hero-lifestyle.jpg",
   },
   story: {
-    dog: "/images/story-dog.jpg",
+    dog: "/images/dc-the-dog.jpg",
     founder: "/images/story-founder.jpg",
     workshop: "/images/story-workshop.jpg",
   },
@@ -20,13 +20,13 @@ export const ASSETS = {
     action: "/images/product-action.jpg",
   },
   sizes: {
-    small: "/images/sizes-small.jpg",
-    medium: "/images/sizes-medium.jpg",
-    large: "/images/sizes-large.jpg",
+    small: "/images/small.jpg",
+    medium: "/images/medium.jpg",
+    large: "/images/large.jpg",
     comparison: "/images/sizes-comparison.jpg",
   },
   materials: {
-    texture: "/images/materials-texture.jpg",
+    texture: "/images/material-texture.jpg",
     raw: "/images/materials-raw.jpg",
     compost: "/images/materials-compost.jpg",
   },

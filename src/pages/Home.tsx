@@ -86,11 +86,11 @@ export const Home = () => {
           <div className="relative flex justify-center items-center">
             <Float duration={5}>
               <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem]">
-                <SafeImage 
+                <img 
                   src={ASSETS.hero.product} 
                   alt="FUURRSBEE Product" 
                   className="w-full h-full object-cover rounded-[4rem] shadow-2xl border-8 border-white"
-                  fallbackVariant="sky"
+                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand-lavender/30 rounded-full blur-3xl -z-10" />
                 <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-sky/30 rounded-full blur-3xl -z-10" />

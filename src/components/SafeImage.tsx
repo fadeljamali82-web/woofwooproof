@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { VisualFallback } from './VisualFallback';
+import React from 'react';
 
 interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src?: string | null;
@@ -11,37 +10,22 @@ interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 /**
  * SIMPLIFIED SAFE IMAGE
- * Renders the image normally with a simple fallback if it fails.
+ * Renders a plain image element.
  */
 export const SafeImage = ({
   src,
   alt,
   className,
-  fallbackVariant = 'lavender',
-  aspectRatio = 'square',
+  fallbackVariant,
+  aspectRatio,
   ...props
 }: SafeImageProps) => {
-  const [error, setError] = useState(false);
-
-  if (!src || error) {
-    return (
-      <VisualFallback 
-        variant={fallbackVariant} 
-        className={className} 
-        aspectRatio={aspectRatio}
-      >
-        <span className="text-[10px] font-bold uppercase tracking-widest opacity-30 px-4 text-center">{alt}</span>
-      </VisualFallback>
-    );
-  }
-
   return (
     <img 
-      src={src} 
+      src={src || ''} 
       alt={alt} 
       className={className} 
       referrerPolicy="no-referrer"
-      onError={() => setError(true)}
       {...props} 
     />
   );
