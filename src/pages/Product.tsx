@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ASSETS } from '../constants/assets';
-import { Shield, Zap, Leaf, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Shield, Zap, Leaf, ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
+import { ASSETS } from '../constants/assets';
+import { SafeImage } from '../components/SafeImage';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -52,11 +53,11 @@ export const Product = () => {
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[28rem] lg:h-[28rem] shrink-0"
             >
-              <img 
+              <SafeImage 
                 src={ASSETS.product.main} 
-                alt="FUURRSBEE Product" 
-                className="w-full h-full object-cover rounded-[3rem] shadow-2xl border-4 border-white"
-                referrerPolicy="no-referrer"
+                alt="FUURRSBEE Main" 
+                className="w-full h-full object-cover rounded-[2.5rem] shadow-2xl border-4 border-white"
+                fallbackVariant="product"
               />
             </motion.div>
           </div>
@@ -68,11 +69,11 @@ export const Product = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img 
+              <SafeImage 
                 src={ASSETS.product.detail1} 
                 alt="Product Detail" 
                 className="w-full aspect-square object-cover"
-                referrerPolicy="no-referrer"
+                fallbackVariant="mint"
               />
             </div>
           </FadeIn>
@@ -132,7 +133,13 @@ export const Product = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           <FadeIn>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-xl group">
-              <img src={ASSETS.product.action} alt="Action" className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <SafeImage 
+                src={ASSETS.product.action} 
+                alt="Action Shot" 
+                className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
+                fallbackVariant="sky"
+                aspectRatio="video"
+              />
               <div className="absolute inset-0 bg-brand-navy/20" />
               <div className="absolute bottom-8 left-8 text-white">
                 <h3 className="text-2xl font-bold mb-1">High-Energy Fetch</h3>
@@ -142,7 +149,13 @@ export const Product = () => {
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-xl group">
-              <img src={ASSETS.product.detail2} alt="Detail" className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <SafeImage 
+                src={ASSETS.product.detail2} 
+                alt="Detail Shot" 
+                className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
+                fallbackVariant="lavender"
+                aspectRatio="video"
+              />
               <div className="absolute inset-0 bg-brand-navy/20" />
               <div className="absolute bottom-8 left-8 text-white">
                 <h3 className="text-2xl font-bold mb-1">Aggressive Chewing</h3>

@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { ASSETS } from '../constants/assets';
+import { SafeImage } from '../components/SafeImage';
 import { ArrowRight, Shield, Leaf, Zap, Globe, Award } from 'lucide-react';
 
 /**
@@ -48,8 +49,6 @@ const SectionHeader = ({ title, subtitle, centered = true }: { title: string, su
 );
 
 export const Home = () => {
-  const KICKSTARTER_URL = "https://www.kickstarter.com/projects/woofwoofproof/eco-friendly-pet-toys-safer-play-sustainable-future?ref=2w535a&token=de355760";
-
   return (
     <motion.div 
       initial={{ opacity: 0 }} 
@@ -87,11 +86,11 @@ export const Home = () => {
           <div className="relative flex justify-center items-center">
             <Float duration={5}>
               <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem]">
-                <img 
+                <SafeImage 
                   src={ASSETS.hero.product} 
                   alt="FUURRSBEE Product" 
                   className="w-full h-full object-cover rounded-[4rem] shadow-2xl border-8 border-white"
-                  referrerPolicy="no-referrer"
+                  fallbackVariant="sky"
                 />
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand-lavender/30 rounded-full blur-3xl -z-10" />
                 <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-sky/30 rounded-full blur-3xl -z-10" />
@@ -106,11 +105,12 @@ export const Home = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-xl">
-              <img 
+              <SafeImage 
                 src={ASSETS.story.dog} 
                 alt="DC the dog" 
                 className="w-full aspect-[4/5] object-cover"
-                referrerPolicy="no-referrer"
+                fallbackVariant="lavender"
+                aspectRatio="portrait"
               />
               <div className="absolute inset-0 bg-brand-navy/5" />
             </div>
@@ -188,7 +188,7 @@ export const Home = () => {
                         style={{ scale: item.scale }}
                         className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden shadow-lg border-4 border-brand-mint/20"
                       >
-                        <img src={item.img} alt={item.label} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                        <SafeImage src={item.img} alt={item.label} className="w-full h-full object-cover" fallbackVariant="mint" />
                       </motion.div>
                     </div>
                     <h3 className="text-2xl text-brand-navy mb-1">{item.label}</h3>
@@ -226,7 +226,7 @@ export const Home = () => {
           </div>
           <FadeIn delay={0.2}>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-xl">
-              <img src={ASSETS.materials.texture} alt="Material Texture" className="w-full aspect-video object-cover" referrerPolicy="no-referrer" />
+              <SafeImage src={ASSETS.materials.texture} alt="Material Texture" className="w-full aspect-video object-cover" fallbackVariant="peach" aspectRatio="video" />
             </div>
           </FadeIn>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ASSETS } from '../constants/assets';
+import { SafeImage } from '../components/SafeImage';
 import { Leaf, Shield, Globe, Recycle, CheckCircle2 } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
@@ -25,11 +26,11 @@ export const Materials = () => {
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-brand-mint/10">
         <div className="absolute inset-0 z-0 opacity-20">
-          <img 
+          <SafeImage 
             src={ASSETS.materials.texture} 
             alt="Texture" 
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
+            fallbackVariant="mint"
           />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
@@ -80,11 +81,11 @@ export const Materials = () => {
           </div>
           <FadeIn delay={0.2}>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img 
+              <SafeImage 
                 src={ASSETS.materials.raw} 
                 alt="Raw Materials" 
                 className="w-full aspect-square object-cover"
-                referrerPolicy="no-referrer"
+                fallbackVariant="peach"
               />
             </div>
           </FadeIn>
@@ -125,11 +126,12 @@ export const Materials = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img 
+              <SafeImage 
                 src={ASSETS.materials.compost} 
                 alt="Compost" 
                 className="w-full aspect-video object-cover"
-                referrerPolicy="no-referrer"
+                fallbackVariant="lavender"
+                aspectRatio="video"
               />
             </div>
           </FadeIn>

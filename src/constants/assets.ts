@@ -1,73 +1,43 @@
-import heroProduct from '../assets/hero/hero-product.png';
-import heroBg from '../assets/hero/hero-bg.png';
-import heroLifestyle from '../assets/hero/hero-lifestyle.png';
-
-import storyDog from '../assets/story/story-dog.png';
-import storyFounder from '../assets/story/story-founder.png';
-import storyWorkshop from '../assets/story/story-workshop.png';
-
-import productMain from '../assets/product/product-main.png';
-import productDetail1 from '../assets/product/product-detail1.png';
-import productDetail2 from '../assets/product/product-detail2.png';
-import productAction from '../assets/product/product-action.png';
-
-import sizesSmall from '../assets/sizes/sizes-small.png';
-import sizesMedium from '../assets/sizes/sizes-medium.png';
-import sizesLarge from '../assets/sizes/sizes-large.png';
-import sizesComparison from '../assets/sizes/sizes-comparison.png';
-
-import materialsTexture from '../assets/materials/materials-texture.png';
-import materialsRaw from '../assets/materials/materials-raw.png';
-import materialsCompost from '../assets/materials/materials-compost.png';
-
-import ethicalArtisan from '../assets/ethical/ethical-artisan.png';
-import ethicalCommunity from '../assets/ethical/ethical-community.png';
-
-import futureTugtwine from '../assets/future/future-tugtwine.png';
-import futureKnotcore from '../assets/future/future-knotcore.png';
-import futureInfinity from '../assets/future/future-infinity.png';
-import futureSnuggle from '../assets/future/future-snuggle.png';
-
 /**
- * Centralized Asset Management
- * Using local imports for production-ready asset handling.
+ * CENTRALIZED ASSETS
+ * Simple string paths to public/images/ folder.
  */
 export const ASSETS = {
   hero: {
-    product: heroProduct,
-    bg: heroBg,
-    lifestyle: heroLifestyle,
+    product: "/images/hero-product.jpg",
+    bg: "/images/hero-bg.jpg",
+    lifestyle: "/images/hero-lifestyle.jpg",
   },
   story: {
-    dog: storyDog,
-    founder: storyFounder,
-    workshop: storyWorkshop,
+    dog: "/images/story-dog.jpg",
+    founder: "/images/story-founder.jpg",
+    workshop: "/images/story-workshop.jpg",
   },
   product: {
-    main: productMain,
-    detail1: productDetail1,
-    detail2: productDetail2,
-    action: productAction,
+    main: "/images/product-main.jpg",
+    detail1: "/images/product-detail1.jpg",
+    detail2: "/images/product-detail2.jpg",
+    action: "/images/product-action.jpg",
   },
   sizes: {
-    small: sizesSmall,
-    medium: sizesMedium,
-    large: sizesLarge,
-    comparison: sizesComparison,
+    small: "/images/sizes-small.jpg",
+    medium: "/images/sizes-medium.jpg",
+    large: "/images/sizes-large.jpg",
+    comparison: "/images/sizes-comparison.jpg",
   },
   materials: {
-    texture: materialsTexture,
-    raw: materialsRaw,
-    compost: materialsCompost,
+    texture: "/images/materials-texture.jpg",
+    raw: "/images/materials-raw.jpg",
+    compost: "/images/materials-compost.jpg",
   },
   ethical: {
-    artisan: ethicalArtisan,
-    community: ethicalCommunity,
+    artisan: "/images/ethical-artisan.jpg",
+    community: "/images/ethical-community.jpg",
   },
   future: {
-    tugtwine: futureTugtwine,
-    knotcore: futureKnotcore,
-    infinity: futureInfinity,
-    snuggle: futureSnuggle,
+    tugtwine: "/images/future-tugtwine.jpg",
+    knotcore: "/images/future-knotcore.jpg",
+    infinity: "/images/future-infinity.jpg",
+    snuggle: "/images/future-snuggle.jpg",
   }
 };

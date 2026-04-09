@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../constants/assets';
+import { SafeImage } from '../components/SafeImage';
 import { Button } from '../components/Button';
-import { ArrowRight, Info } from 'lucide-react';
+import { Info } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -78,7 +79,7 @@ export const Sizes = () => {
                       style={{ scale: item.scale }}
                       className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden shadow-2xl border-4 border-brand-mint/20"
                     >
-                      <img src={item.img} alt={item.size} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <SafeImage src={item.img} alt={item.size} className="w-full h-full object-cover" fallbackVariant="mint" />
                     </motion.div>
                   </div>
                   <div className="space-y-3">
@@ -105,11 +106,12 @@ export const Sizes = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img 
+              <SafeImage 
                 src={ASSETS.sizes.comparison} 
                 alt="Size Comparison" 
                 className="w-full aspect-video object-cover"
-                referrerPolicy="no-referrer"
+                fallbackVariant="sky"
+                aspectRatio="video"
               />
             </div>
           </FadeIn>

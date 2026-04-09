@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ASSETS } from '../constants/assets';
+import { SafeImage } from '../components/SafeImage';
 import { Shield, Heart, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
@@ -25,11 +26,11 @@ export const Story = () => {
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-brand-navy text-white">
         <div className="absolute inset-0 z-0 opacity-40">
-          <img 
+          <SafeImage 
             src={ASSETS.story.dog} 
             alt="DC the dog" 
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
+            fallbackVariant="navy"
           />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
@@ -84,11 +85,11 @@ export const Story = () => {
           </div>
           <FadeIn delay={0.2}>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img 
+              <SafeImage 
                 src={ASSETS.story.workshop} 
                 alt="Workshop" 
                 className="w-full aspect-square object-cover"
-                referrerPolicy="no-referrer"
+                fallbackVariant="peach"
               />
             </div>
           </FadeIn>
@@ -116,11 +117,12 @@ export const Story = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img 
+              <SafeImage 
                 src={ASSETS.story.founder} 
                 alt="Founder" 
                 className="w-full aspect-[4/5] object-cover"
-                referrerPolicy="no-referrer"
+                fallbackVariant="mint"
+                aspectRatio="portrait"
               />
             </div>
           </FadeIn>

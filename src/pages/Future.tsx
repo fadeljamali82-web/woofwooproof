@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ASSETS } from '../constants/assets';
+import { SafeImage } from '../components/SafeImage';
 import { Package, ArrowRight } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
@@ -75,11 +76,11 @@ export const Future = () => {
             <div key={i}>
               <FadeIn delay={i * 0.1}>
                 <div className="group relative rounded-[2.5rem] overflow-hidden bg-brand-cloud aspect-[16/10] shadow-sm hover:shadow-xl transition-all duration-700">
-                  <img 
+                  <SafeImage 
                     src={product.img} 
                     alt={product.name} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
-                    referrerPolicy="no-referrer"
+                    fallbackVariant="navy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/20 to-transparent flex flex-col justify-end p-8 text-white">
                     <div className="space-y-3">

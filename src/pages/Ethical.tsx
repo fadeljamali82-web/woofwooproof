@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { motion } from 'motion/react';
 import { ASSETS } from '../constants/assets';
+import { SafeImage } from '../components/SafeImage';
 import { Heart, Globe, Users } from 'lucide-react';
 
 const FadeIn = ({
@@ -32,11 +32,11 @@ export const Ethical = () => {
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-brand-peach/10">
         <div className="absolute inset-0 z-0 opacity-20">
-          <img
+          <SafeImage
             src={ASSETS.ethical.community}
             alt="Community"
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
+            fallbackVariant="peach"
           />
         </div>
 
@@ -107,11 +107,11 @@ export const Ethical = () => {
 
           <FadeIn delay={0.2}>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img
+              <SafeImage
                 src={ASSETS.ethical.artisan}
                 alt="Artisan"
                 className="w-full aspect-square object-cover"
-                referrerPolicy="no-referrer"
+                fallbackVariant="lavender"
               />
             </div>
           </FadeIn>
