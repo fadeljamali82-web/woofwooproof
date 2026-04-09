@@ -1,7 +1,3 @@
-/**
- * CENTRALIZED ASSETS
- * Simple string paths to public/images/ folder.
- */
 export const ASSETS = {
   hero: {
     product: "/images/frisbee-product.jpg",
@@ -41,3 +37,5 @@ export const ASSETS = {
     snuggle: "/images/future-snuggle.jpg",
   }
 };
+// add this temporarily
+// force update
