@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ASSETS } from '@/src/constants/assets';
+import { ASSETS } from '../constants/assets';
 import { CheckCircle2, Globe, Shield, Heart, ArrowRight } from 'lucide-react';
-import { Button } from '@/src/components/Button';
+import { Button } from '../components/Button';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div

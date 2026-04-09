@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/src/components/Button';
-import { ASSETS } from '@/src/constants/assets';
+import { Button } from '../components/Button';
+import { ASSETS } from '../constants/assets';
 import { ArrowRight, Shield, Leaf, Zap, Globe, Award } from 'lucide-react';
 
 /**

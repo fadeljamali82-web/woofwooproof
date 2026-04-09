@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ASSETS } from '@/src/constants/assets';
-import { Button } from '@/src/components/Button';
+import { ASSETS } from '../constants/assets';
+import { Button } from '../components/Button';
 import { ArrowRight, Info } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
