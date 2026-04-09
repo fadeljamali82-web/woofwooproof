@@ -8,12 +8,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-export const Button = ({ 
-  className, 
-  variant = 'primary', 
-  size = 'md', 
+export const Button = ({
+  className,
+  variant = 'primary',
+  size = 'md',
   children,
-  ...props 
+  ...props
 }: ButtonProps) => {
   const variants = {
     primary: 'bg-brand-navy text-white shadow-xl shadow-brand-navy/20 hover:scale-105 hover:shadow-2xl',

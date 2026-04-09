@@ -26,26 +26,26 @@ export const BackUs = () => {
       className="flex flex-col w-full"
     >
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-6 bg-gradient-soft overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-12">
+      <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-16 px-6 bg-gradient-soft overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 border border-white/40 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-navy mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 border border-white/40 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-navy mb-3">
               <Globe size={14} /> Shipping Worldwide
             </div>
-            <h1 className="text-7xl md:text-9xl text-brand-navy leading-[0.85] tracking-tighter">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl text-brand-navy leading-[0.85] tracking-tighter">
               Be part of the <br />
               <span className="text-brand-text/30">first wave.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-brand-text/60 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-brand-text/60 max-w-xl mx-auto leading-relaxed">
               Join us on Kickstarter to bring the plant-based revolution to dog parks everywhere. Early backers get exclusive pricing and first-run editions.
             </p>
-            <div className="pt-8">
+            <div className="pt-6">
               <a 
                 href={KICKSTARTER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button size="lg" className="px-20 py-8 text-xl">Back on Kickstarter</Button>
+                <Button size="lg" className="px-12 py-5 text-lg">Back on Kickstarter</Button>
               </a>
             </div>
           </FadeIn>
@@ -59,14 +59,14 @@ export const BackUs = () => {
       </section>
 
       {/* Benefits Recap */}
-      <section className="py-32 md:py-48 px-6 bg-white">
+      <section className="section-padding px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <FadeIn>
-              <h2 className="text-5xl md:text-7xl text-brand-navy tracking-tight">Why back us now?</h2>
+              <h2 className="text-4xl md:text-6xl text-brand-navy tracking-tight">Why back us now?</h2>
             </FadeIn>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { 
                 icon: <Shield className="text-brand-sky" />, 
@@ -86,12 +86,12 @@ export const BackUs = () => {
             ].map((item, i) => (
               <div key={i}>
                 <FadeIn delay={i * 0.1}>
-                  <div className="glass-card p-12 rounded-[3rem] h-full flex flex-col items-center text-center space-y-6">
-                    <div className="w-16 h-16 bg-brand-cloud rounded-2xl flex items-center justify-center">
-                      {React.cloneElement(item.icon as React.ReactElement, { size: 32 })}
+                  <div className="glass-card p-10 rounded-[2.5rem] h-full flex flex-col items-center text-center space-y-4">
+                    <div className="w-14 h-14 bg-brand-cloud rounded-2xl flex items-center justify-center">
+                      {React.cloneElement(item.icon as React.ReactElement, { size: 28 })}
                     </div>
-                    <h3 className="text-2xl text-brand-navy">{item.title}</h3>
-                    <p className="text-brand-text/50 leading-relaxed">{item.desc}</p>
+                    <h3 className="text-xl font-bold text-brand-navy">{item.title}</h3>
+                    <p className="text-sm text-brand-text/50 leading-relaxed">{item.desc}</p>
                   </div>
                 </FadeIn>
               </div>
@@ -101,25 +101,25 @@ export const BackUs = () => {
       </section>
 
       {/* Trust Reinforcement */}
-      <section className="py-32 md:py-48 px-6 bg-brand-sky/10">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
+      <section className="section-padding px-6 bg-brand-sky/10">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
           <FadeIn>
-            <h2 className="text-5xl md:text-7xl text-brand-navy leading-tight tracking-tight">
+            <h2 className="text-4xl md:text-6xl text-brand-navy leading-tight tracking-tight">
               A commitment to <br />
               <span className="text-brand-text/30 italic">transparency.</span>
             </h2>
-            <p className="text-xl text-brand-text/60 leading-relaxed">
+            <p className="text-lg text-brand-text/60 leading-relaxed">
               We've already completed our R&D and established our production partnerships. Your backing goes directly toward our first full-scale manufacturing run.
             </p>
-            <div className="flex flex-wrap justify-center gap-8 pt-8">
-              <div className="flex items-center gap-2 text-brand-navy font-bold uppercase tracking-widest text-xs">
-                <CheckCircle2 size={16} className="text-brand-mint" /> Prototype Ready
+            <div className="flex flex-wrap justify-center gap-6 pt-6">
+              <div className="flex items-center gap-2 text-brand-navy font-bold uppercase tracking-widest text-[10px]">
+                <CheckCircle2 size={14} className="text-brand-mint" /> Prototype Ready
               </div>
-              <div className="flex items-center gap-2 text-brand-navy font-bold uppercase tracking-widest text-xs">
-                <CheckCircle2 size={16} className="text-brand-mint" /> Partners Secured
+              <div className="flex items-center gap-2 text-brand-navy font-bold uppercase tracking-widest text-[10px]">
+                <CheckCircle2 size={14} className="text-brand-mint" /> Partners Secured
               </div>
-              <div className="flex items-center gap-2 text-brand-navy font-bold uppercase tracking-widest text-xs">
-                <CheckCircle2 size={16} className="text-brand-mint" /> Patent Pending
+              <div className="flex items-center gap-2 text-brand-navy font-bold uppercase tracking-widest text-[10px]">
+                <CheckCircle2 size={14} className="text-brand-mint" /> Patent Pending
               </div>
             </div>
           </FadeIn>
@@ -127,18 +127,18 @@ export const BackUs = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-48 px-6 bg-brand-navy text-white text-center">
-        <div className="max-w-4xl mx-auto space-y-12">
+      <section className="py-24 px-6 bg-brand-navy text-white text-center">
+        <div className="max-w-4xl mx-auto space-y-8">
           <FadeIn>
-            <h2 className="text-6xl md:text-8xl mb-8 tracking-tighter">Let's build the future <br /> of play together.</h2>
+            <h2 className="text-4xl md:text-6xl mb-6 tracking-tighter">Let's build the future <br /> of play together.</h2>
             <a 
               href={KICKSTARTER_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block"
             >
-              <Button size="lg" className="bg-white text-brand-navy px-20 py-8 text-xl">
-                Pledge on Kickstarter <ArrowRight className="inline-block ml-2" size={24} />
+              <Button size="lg" className="bg-white text-brand-navy px-12 py-5 text-lg">
+                Pledge on Kickstarter <ArrowRight className="inline-block ml-2" size={20} />
               </Button>
             </a>
           </FadeIn>

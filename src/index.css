@@ -29,12 +29,21 @@
   }
 
   body {
-    @apply bg-brand-cloud text-brand-text font-sans antialiased selection:bg-brand-lavender selection:text-brand-navy;
+    background-color: var(--color-brand-cloud);
+    color: var(--color-brand-text);
+    font-family: var(--font-sans);
+    @apply antialiased;
     overflow-x: hidden;
   }
 
+  ::selection {
+    background-color: var(--color-brand-lavender);
+    color: var(--color-brand-navy);
+  }
+
   h1, h2, h3, h4 {
-    @apply font-display font-bold tracking-tight;
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
   }
 }
 
@@ -55,6 +64,10 @@
   }
 
   .section-padding {
-    @apply py-24 md:py-32 lg:py-48;
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .text-prose {
+    @apply max-w-[65ch] mx-auto;
   }
 }

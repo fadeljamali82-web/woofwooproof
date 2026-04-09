@@ -50,18 +50,18 @@ export const Future = () => {
       className="flex flex-col w-full"
     >
       {/* Hero Section */}
-      <section className="py-32 md:py-48 px-6 bg-brand-navy text-white text-center relative overflow-hidden">
+      <section className="py-24 md:py-32 px-6 bg-brand-navy text-white text-center relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-brand-sky rounded-full blur-[150px]" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-brand-lavender rounded-full blur-[150px]" />
         </div>
-        <div className="max-w-4xl mx-auto relative z-10 space-y-8">
+        <div className="max-w-4xl mx-auto relative z-10 space-y-6">
           <FadeIn>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl leading-tight tracking-tighter">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tighter">
               The ecosystem <br />
               <span className="text-white/40 italic">is growing.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-white/60 max-w-xl mx-auto leading-relaxed">
               We're applying our plant-based innovation to every aspect of your dog's life.
             </p>
           </FadeIn>
@@ -69,27 +69,27 @@ export const Future = () => {
       </section>
 
       {/* Modular Grid */}
-      <section className="py-32 md:py-48 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section className="section-padding px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {FUTURE_PRODUCTS.map((product, i) => (
             <div key={i}>
               <FadeIn delay={i * 0.1}>
-                <div className="group relative rounded-[3rem] overflow-hidden bg-brand-cloud aspect-[16/10] shadow-sm hover:shadow-xl transition-all duration-700">
+                <div className="group relative rounded-[2.5rem] overflow-hidden bg-brand-cloud aspect-[16/10] shadow-sm hover:shadow-xl transition-all duration-700">
                   <img 
                     src={product.img} 
                     alt={product.name} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/20 to-transparent flex flex-col justify-end p-12 text-white">
-                    <div className="space-y-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/20 to-transparent flex flex-col justify-end p-8 text-white">
+                    <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-4xl font-display font-bold">{product.name}</h3>
-                        <span className="px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/20">
+                        <h3 className="text-2xl font-display font-bold">{product.name}</h3>
+                        <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[9px] font-bold uppercase tracking-widest border border-white/20">
                           {product.status}
                         </span>
                       </div>
-                      <p className="text-white/60 text-lg max-w-md leading-relaxed">
+                      <p className="text-white/60 text-sm max-w-md leading-relaxed">
                         {product.desc}
                       </p>
                     </div>
@@ -102,15 +102,15 @@ export const Future = () => {
       </section>
 
       {/* Roadmap / Vision */}
-      <section className="py-32 md:py-48 px-6 bg-brand-sky/10">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
+      <section className="section-padding px-6 bg-brand-sky/10">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
           <FadeIn>
-            <Package className="text-brand-sky mx-auto mb-8" size={48} />
-            <h2 className="text-5xl md:text-7xl text-brand-navy leading-tight tracking-tight">
+            <Package className="text-brand-sky mx-auto mb-6" size={40} />
+            <h2 className="text-4xl md:text-6xl text-brand-navy leading-tight tracking-tight">
               A future without <br />
               <span className="text-brand-text/30 italic">plastic play.</span>
             </h2>
-            <p className="text-2xl text-brand-text/60 leading-relaxed italic font-display">
+            <p className="text-xl text-brand-text/60 leading-relaxed italic font-display">
               Our vision is to replace every synthetic dog toy in the world with a plant-based alternative that performs better and respects the planet.
             </p>
           </FadeIn>
@@ -118,18 +118,18 @@ export const Future = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-6 bg-brand-navy text-white text-center">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <section className="py-24 px-6 bg-brand-navy text-white text-center">
+        <div className="max-w-3xl mx-auto space-y-6">
           <FadeIn>
-            <h2 className="text-4xl md:text-6xl mb-8">Ready to make it happen?</h2>
+            <h2 className="text-3xl md:text-5xl mb-6">Ready to make it happen?</h2>
             <div className="flex justify-center">
               <motion.a 
                 href="/back-us"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-brand-navy px-12 py-4 rounded-full font-bold uppercase tracking-widest text-sm"
+                className="bg-white text-brand-navy px-10 py-3.5 rounded-full font-bold uppercase tracking-widest text-xs"
               >
-                Back the Project <ArrowRight className="inline-block ml-2" size={18} />
+                Back the Project <ArrowRight className="inline-block ml-2" size={16} />
               </motion.a>
             </div>
           </FadeIn>

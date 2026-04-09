@@ -12,6 +12,7 @@ import { BackUs } from './pages/BackUs';
 import { Navbar } from './components/Navbar';
 import { AnimatePresence } from 'motion/react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
+import './index.css';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
